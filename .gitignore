@@ -1,5 +1,5 @@
 logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_*/
-!logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/
+# !logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/
 
 # 忽略 data/ 目录下的大数据集，但保留 data.py
 
