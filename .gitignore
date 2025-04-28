@@ -1,6 +1,8 @@
 logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_*/
 # !logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/
 
+torch-2.3.0+cu121-cp310-cp310-linux_x86_64.whl
+
 # 忽略 data/ 目录下的大数据集，但保留 data.py
 
 # 忽略预处理生成的 openwebtext数据
