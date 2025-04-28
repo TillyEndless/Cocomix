@@ -29,7 +29,7 @@ export CUDA_VISIBLE_DEVICES=2
 
 # 保存路径（需确保与训练配置中的 log_path 一致）
 SAVE_DIR="./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22"
-CKPT_PATH="$SAVE_DIR/step_38000"
+CKPT_PATH="$SAVE_DIR/step_36000"
 
 # 自动恢复 checkpoint（如果存在）
 if [ -d "$CKPT_PATH" ]; then
