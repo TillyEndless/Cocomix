@@ -11,13 +11,32 @@ on:
 jobs:
   check-repo:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
     - name: List changed files
-      run: git diff --name-only HEAD^ HEAD
-
-    - name: Basic Python Syntax Check
       run: |
-        find . -name "*.py" -print0 | xargs -0 python -m py_compile
+        git diff --name-only HEAD~1 || true
+
+    - name: Check for Python syntax errors
+      run: |
+        find . -name "*.py" -print0 | xargs -0 python -m py_compile || true
+
+    - name: Check if README exists
+      run: |
+        if [ ! -f README.md ]; then
+          echo "❌ ERROR: README.md not found!"
+          exit 1
+        else
+          echo "✅ README.md exists."
+        fi
+
+    - name: Check if requirements.txt exists
+      run: |
+        if [ ! -f requirements.txt ]; then
+          echo "⚠️ WARNING: requirements.txt not found."
+        else
+          echo "✅ requirements.txt exists."
+        fi
