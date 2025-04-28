@@ -1,0 +1,171 @@
+Resuming from checkpoint: ./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[W CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[2025-04-28 05:32:56,472][accelerate.utils.other][WARNING] - Detected kernel version 3.10.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in GPT2CoCoMixLMHeadModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in GPT2CoCoMixModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda:0
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.18.7
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[2025-04-28 05:34:18.599164] wandb_log: true
+wandb_entity: null
+wandb_project: null
+wandb_key: null
+mode: cocomix
+seed: 22
+rank: 0
+suffix: null
+base_model: openai-community/gpt2
+pretrained_model: openai-community/gpt2
+dataset: openwebtext
+data_dir: ./data/openwebtext_preprocess
+n_embd: 512
+n_layer: 8
+n_head: 8
+vocab_size: null
+load_path: ./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000
+port: 9819
+distributed: false
+world_size: 1
+use_torch_compile: true
+compile_dynamo_cache_size_limit: 512
+lr: 0.0006
+lr_schedule: cosine_with_min_lr
+beta1: 0.9
+beta2: 0.95
+grad_clip_thresh: 1.0
+warmup_steps: 130
+min_lr: 6.0e-05
+eps: 1.0e-08
+mixed_precision: null
+weight_decay: 0.1
+train_steps: 130000
+n_epochs: 2
+num_workers: 2
+update_batch_size: 8
+grad_acc_steps: 32
+block_size: 512
+dropout: 0.0
+bias: false
+log_path: null
+use_accelerator: true
+save_step_freq: 2000
+eval_step_freq: 1000
+log_step_freq: 50
+global_step: 0
+val_datasets:
+- openwebtext
+batch_size_eval: 8
+eval_limit: 1000
+topK_attri: 4
+concept_num: 32
+concept_dim: 32768
+sae_location: resid_post_mlp
+insert_layer_index: 3
+sae_layer_index: 5
+lam_concept: 0.1
+resume_path: ./logs/resume
+attn_implementation: eager
+torch_dtype: float16
+
+[2025-04-28 05:34:18.602835] ✅ Loaded model weights (deferred) from ./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/model.safetensors
+[2025-04-28 05:34:19.269308] ✅ Loaded optimizer state from ./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/optimizer.pt
+[2025-04-28 05:34:19.269933] ✅ Loaded scheduler state from ./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/scheduler.pt
+[2025-04-28 05:34:19.270489] ✅ Resuming from step 38000
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_init_utils.py:437: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  warnings.warn(
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/accelerator.py:1731: UserWarning: Upcasted low precision parameters in GPT2CoCoMixLMHeadModel because mixed precision turned on in FSDP. Affects: transformer.pre_bias, transformer.wte.weight, transformer.wpe.weight, transformer.ln_f.weight, transformer.ln_f.bias, transformer.concept_predictor.weight, transformer.concept_predictor.bias, transformer.compress_layer.weight, transformer.compress_layer.bias.
+  warnings.warn(
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/accelerator.py:1731: UserWarning: Upcasted low precision parameters in GPT2Block because mixed precision turned on in FSDP. Affects: ln_1.weight, ln_1.bias, attn.c_attn.weight, attn.c_attn.bias, attn.c_proj.weight, attn.c_proj.bias, ln_2.weight, ln_2.bias, mlp.c_fc.weight, mlp.c_fc.bias, mlp.c_proj.weight, mlp.c_proj.bias.
+  warnings.warn(
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/accelerator.py:1737: UserWarning: FSDP upcast of low precision parameters may affect the precision of model checkpoints.
+  warnings.warn(
+Error executing job with overrides: ['setup=gpt2_69m_cocomix', '++concept_dim=32768', '++concept_num=32', '++block_size=512', '++update_batch_size=8', '++grad_acc_steps=32', '++batch_size_eval=8', '++attn_implementation=eager', '++torch_dtype=float16', '++load_path=./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000']
+Traceback (most recent call last):
+  File "/root/RAM-cocomix/projects/cocomix/main.py", line 104, in main
+    _ = unwrapped(dummy_input)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/utils/operations.py", line 814, in forward
+    return model_forward(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/utils/operations.py", line 802, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/root/RAM-cocomix/projects/cocomix/models/modeling_gpt2_cocomix.py", line 1540, in forward
+    transformer_outputs, concept_logit = self.transformer(
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/RAM-cocomix/projects/cocomix/models/modeling_gpt2_cocomix.py", line 1328, in forward
+    outputs = block(
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 843, in forward
+    args, kwargs = _pre_forward(
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 380, in _pre_forward
+    unshard_fn(state, handle)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 415, in _pre_forward_unshard
+    _unshard(state, handle, state._unshard_stream, state._pre_unshard_stream)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 288, in _unshard
+    ran_pre_unshard = handle.pre_unshard()
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 1252, in pre_unshard
+    ret = self._writeback_orig_params()
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 2249, in _writeback_orig_params
+    self._writeback_tensor(
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 2348, in _writeback_tensor
+    raise RuntimeError(
+RuntimeError: Cannot writeback when the parameter shape changes
+Expects torch.Size([786432]) but got torch.Size([512, 1536])
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[1;34mwandb[0m:
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync ./logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/wandb/offline-run-20250428_053418-p33pxs8j[0m
+E0428 05:34:22.016000 140260738131776 torch/distributed/elastic/multiprocessing/api.py:826] failed (exitcode: 1) local_rank: 0 (pid: 21300) of binary: /root/miniconda3/envs/cocomix/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/cocomix/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1198, in launch_command
+    multi_gpu_launcher(args)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/accelerate/commands/launch.py", line 825, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/run.py", line 870, in run
+    elastic_launch(
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 132, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 263, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+main.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-28_05:34:22
+  host      : Yemin01
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 21300)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

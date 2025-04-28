@@ -1,0 +1,11 @@
+- setup=gpt2_1b_cocomix
+- ++concept_dim=32768
+- ++concept_num=32
+- ++block_size=256
+- ++update_batch_size=32
+- ++grad_acc_steps=16
+- ++batch_size_eval=4
+- ++use_grad_checkpoint=true
+- ++attn_implementation=flash_attention_2
+- ++torch_dtype=float16
+- ++use_torch_compile=false

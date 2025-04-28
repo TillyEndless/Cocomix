@@ -1,0 +1,21 @@
+_base_: gpt2_base
+
+pretrained_model: gpt2
+base_model: gpt2
+model_type: gpt2
+
+mode: cocomix
+insert_layer_index: [4, 8, 12]  # CoCoMix 典型插入层
+
+concept_dim: 32768
+concept_num: 32
+
+sae_layer_index: 8
+sae_location: mlp_post
+
+block_size: 256
+torch_dtype: float16
+
+learning_rate: 5e-5
+weight_decay: 0.1
+num_train_epochs: 3

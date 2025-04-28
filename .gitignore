@@ -1,0 +1,16 @@
+logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_*/
+!logs/openwebtext/openai-community/gpt2_embd512_L8_H8/cocomix_bs256_ctx512_lam0.1_seed_22/step_38000/
+
+# 忽略 data/ 目录下的大数据集，但保留 data.py
+
+# 忽略预处理生成的 openwebtext数据
+data/openwebtext_local/
+data/openwebtext_preprocess/openwebtext/
+data/openwebtext_preprocess/*.json
+data/openwebtext_preprocess/*.txt
+
+# 保留 dataset 定义代码
+!data/data.py
+!data/openwebtext_preprocess/prepare.py
+!data/openwebtext_preprocess/readme.md
+

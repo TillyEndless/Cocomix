@@ -1,0 +1,362 @@
+No checkpoint found, training from scratch.
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[W CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[2025-04-22 11:46:13,890][accelerate.utils.other][WARNING] - Detected kernel version 3.10.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loaded pretrained model gpt2 into HookedTransformer
+Moving model to device:  cuda:0
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in GPT2CoCoMixLMHeadModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in GPT2CoCoMixModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/torch/distributed/fsdp/_init_utils.py:437: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  warnings.warn(
+[DEBUG] base_lm param dtype: torch.float32
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Currently logged in as: 3095570745 (3095570745-1). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: Tracking run with wandb version 0.18.7
+wandb: Run data is saved locally in ./logs/openwebtext/openai-community/gpt2_embd1024_L24_H16/cocomix_bs256_ctx512_lam0.1_seed_22/wandb/run-20250422_114705-oa69ab7k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run openwebtext_openai-community/gpt2_embd1024_L24_H16_cocomix_bs256_ctx512_lam0.1_seed_22
+wandb: ⭐️ View project at https://wandb.ai/3095570745-1/RAM-cocomix-projects_cocomix
+wandb: 🚀 View run at https://wandb.ai/3095570745-1/RAM-cocomix-projects_cocomix/runs/oa69ab7k
+[2025-04-22 11:47:07.372502] wandb_log: true
+wandb_entity: null
+wandb_project: null
+wandb_key: null
+mode: cocomix
+seed: 22
+rank: 0
+suffix: null
+base_model: openai-community/gpt2
+pretrained_model: openai-community/gpt2
+dataset: openwebtext
+data_dir: ./data/openwebtext_preprocess
+n_embd: 1024
+n_layer: 24
+n_head: 16
+vocab_size: null
+load_path: null
+port: 9819
+distributed: false
+world_size: 1
+use_torch_compile: true
+compile_dynamo_cache_size_limit: 512
+lr: 0.0003
+lr_schedule: cosine_with_min_lr
+beta1: 0.9
+beta2: 0.95
+grad_clip_thresh: 1.0
+warmup_steps: 130
+min_lr: 3.0e-05
+eps: 1.0e-08
+mixed_precision: null
+weight_decay: 0.1
+train_steps: 40000
+n_epochs: 1
+num_workers: 2
+update_batch_size: 8
+grad_acc_steps: 32
+block_size: 512
+dropout: 0.0
+bias: false
+log_path: null
+use_accelerator: true
+save_step_freq: 2000
+eval_step_freq: 1000
+log_step_freq: 50
+global_step: 0
+val_datasets:
+- openwebtext
+batch_size_eval: 8
+eval_limit: 1000
+topK_attri: 4
+concept_num: 32
+concept_dim: 32768
+sae_location: resid_post_mlp
+insert_layer_index: 5
+sae_layer_index: 5
+lam_concept: 0.1
+attn_implementation: eager
+torch_dtype: float16
+
+[2025-04-22 11:47:07.374479] Fused AdamW is available
+Start training (./logs/openwebtext/openai-community/gpt2_embd1024_L24_H16/cocomix_bs256_ctx512_lam0.1_seed_22)
+[2025-04-22 11:47:07.378139] Using torch compile... after first ppl evaluation it may take sometime to run...
+[2025-04-22 11:47:09.573545] --------------------------------------------------
+[2025-04-22 11:47:09.575739] Start ppl evaluation
+[rank0]:W0422 11:47:09.799000 140399426926400 torch/_logging/_internal.py:1013] [0/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+[2025-04-22 11:48:27.654557] Eval time for ppl: 78.08s
+[2025-04-22 11:48:27.656052] Step 0: Eval openwebtext.ppl: 62369.244284455206
+[2025-04-22 11:48:27.656191] End lm evaluation
+[2025-04-22 11:48:27.656257] --------------------------------------------------
+[2025-04-22 11:52:02.796936] Step 0 Train loss: 11.036852777004242
+[2025-04-22 11:52:02.797770] Step 0 Train loss_concept: 10.640768140554428
+[2025-04-22 11:52:02.797969] Step 0 Train grad_norm: 21.90903663635254
+[rank0]:W0422 11:52:04.426000 140399426926400 torch/_dynamo/convert_frame.py:357] torch._dynamo hit config.accumulated_cache_size_limit (64)
+[rank0]:W0422 11:52:04.426000 140399426926400 torch/_dynamo/convert_frame.py:357]    function: 'torch_dynamo_resume_in_add_hook_at_112' (/root/miniconda3/envs/cocomix/lib/python3.10/site-packages/transformer_lens/hook_points.py:112)
+[rank0]:W0422 11:52:04.426000 140399426926400 torch/_dynamo/convert_frame.py:357]    last reason: L['___stack0'] == '<function forward_cache_hook at 0x7fab085b67a0>'
+[rank0]:W0422 11:52:04.426000 140399426926400 torch/_dynamo/convert_frame.py:357] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W0422 11:52:04.426000 140399426926400 torch/_dynamo/convert_frame.py:357] To diagnose recompilation issues, see https://pytorch.org/docs/master/compile/troubleshooting.html.
+[rank0]:W0422 11:52:31.504000 140399426926400 torch/_dynamo/convert_frame.py:357] torch._dynamo hit config.accumulated_cache_size_limit (64)
+[rank0]:W0422 11:52:31.504000 140399426926400 torch/_dynamo/convert_frame.py:357]    function: 'torch_dynamo_resume_in_compute_attribute_at_117' (/data/cocomix_project/RAM-cocomix/projects/cocomix/models/concept_extractor.py:117)
+[rank0]:W0422 11:52:31.504000 140399426926400 torch/_dynamo/convert_frame.py:357]    last reason: L['___stack0'][0] == 3.0844502449035645                     
+[rank0]:W0422 11:52:31.504000 140399426926400 torch/_dynamo/convert_frame.py:357] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W0422 11:52:31.504000 140399426926400 torch/_dynamo/convert_frame.py:357] To diagnose recompilation issues, see https://pytorch.org/docs/master/compile/troubleshooting.html.
+[2025-04-22 12:01:52.510766] Step 50 Train loss: 8.665586180686951
+[2025-04-22 12:01:52.511271] Step 50 Train loss_concept: 8.785500925481319
+[2025-04-22 12:01:52.511464] Step 50 Train grad_norm: 2.8624670708179476
+[2025-04-22 12:11:15.548320] Step 100 Train loss: 7.0538476395607
+[2025-04-22 12:11:15.548722] Step 100 Train loss_concept: 7.199763721525669
+[2025-04-22 12:11:15.548912] Step 100 Train grad_norm: 0.6805785691738129
+[2025-04-22 12:20:39.108107] Step 150 Train loss: 6.551603380441666
+[2025-04-22 12:20:39.108658] Step 150 Train loss_concept: 6.373408132493496
+[2025-04-22 12:20:39.108815] Step 150 Train grad_norm: 0.5687421894073487
+[2025-04-22 12:30:00.804933] Step 200 Train loss: 6.243320345580578
+[2025-04-22 12:30:00.805385] Step 200 Train loss_concept: 5.89184269875288
+[2025-04-22 12:30:00.805538] Step 200 Train grad_norm: 0.48672763526439666
+[2025-04-22 12:39:21.401154] Step 250 Train loss: 5.979280005693436
+[2025-04-22 12:39:21.401638] Step 250 Train loss_concept: 5.608714451193809
+[2025-04-22 12:39:21.401800] Step 250 Train grad_norm: 0.5045959955453873
+[2025-04-22 12:48:42.135415] Step 300 Train loss: 5.754135641753674
+[2025-04-22 12:48:42.135858] Step 300 Train loss_concept: 5.401244360506535
+[2025-04-22 12:48:42.136090] Step 300 Train grad_norm: 0.44971088647842405
+[2025-04-22 12:58:01.583607] Step 350 Train loss: 5.535419536530972
+[2025-04-22 12:58:01.583992] Step 350 Train loss_concept: 5.2241793650388715
+[2025-04-22 12:58:01.584191] Step 350 Train grad_norm: 0.4456546026468277
+[2025-04-22 13:07:20.090411] Step 400 Train loss: 5.35938271433115
+[2025-04-22 13:07:20.090865] Step 400 Train loss_concept: 5.069723011553288
+[2025-04-22 13:07:20.091007] Step 400 Train grad_norm: 0.4063979679346085
+[2025-04-22 13:16:40.732392] Step 450 Train loss: 5.201736879646778
+[2025-04-22 13:16:40.732755] Step 450 Train loss_concept: 4.927901431620121
+[2025-04-22 13:16:40.732895] Step 450 Train grad_norm: 0.40954286813735963
+[2025-04-22 13:26:01.789654] Step 500 Train loss: 5.068123559355736
+[2025-04-22 13:26:01.790052] Step 500 Train loss_concept: 4.808206998407841
+[2025-04-22 13:26:01.790229] Step 500 Train grad_norm: 0.3929359233379364
+[2025-04-22 13:35:22.350211] Step 550 Train loss: 4.956527223289013
+[2025-04-22 13:35:22.350570] Step 550 Train loss_concept: 4.713053562343121
+[2025-04-22 13:35:22.350721] Step 550 Train grad_norm: 0.40106439650058745
+[2025-04-22 13:44:40.950672] Step 600 Train loss: 4.839020946919918
+[2025-04-22 13:44:40.951103] Step 600 Train loss_concept: 4.639083978235722
+[2025-04-22 13:44:40.951258] Step 600 Train grad_norm: 0.3971366560459137
+[2025-04-22 13:53:58.734250] Step 650 Train loss: 4.73186929166317
+[2025-04-22 13:53:58.734628] Step 650 Train loss_concept: 4.579945593774319
+[2025-04-22 13:53:58.734832] Step 650 Train grad_norm: 0.4081442278623581
+[2025-04-22 14:03:13.577368] Step 700 Train loss: 4.63055075109005
+[2025-04-22 14:03:13.577860] Step 700 Train loss_concept: 4.529983908832073
+[2025-04-22 14:03:13.578079] Step 700 Train grad_norm: 0.4063818496465683
+[2025-04-22 14:12:30.186343] Step 750 Train loss: 4.539546042978763
+[2025-04-22 14:12:30.186871] Step 750 Train loss_concept: 4.483841180503369
+[2025-04-22 14:12:30.187111] Step 750 Train grad_norm: 0.4030462270975113
+[2025-04-22 14:21:46.910949] Step 800 Train loss: 4.472416792809963
+[2025-04-22 14:21:46.911386] Step 800 Train loss_concept: 4.449579315185547
+[2025-04-22 14:21:46.911569] Step 800 Train grad_norm: 0.38993440926074985
+[2025-04-22 14:31:03.720938] Step 850 Train loss: 4.4006924365460875
+[2025-04-22 14:31:03.721314] Step 850 Train loss_concept: 4.41741605848074
+[2025-04-22 14:31:03.721456] Step 850 Train grad_norm: 0.3875375711917877
+[2025-04-22 14:40:25.297773] Step 900 Train loss: 4.357470593005419
+[2025-04-22 14:40:25.298219] Step 900 Train loss_concept: 4.396655650436879
+[2025-04-22 14:40:25.298364] Step 900 Train grad_norm: 0.38049485921859744
+[2025-04-22 14:49:41.599737] Step 950 Train loss: 4.3020065495371815
+[2025-04-22 14:49:41.600271] Step 950 Train loss_concept: 4.3662592592835425
+[2025-04-22 14:49:41.600481] Step 950 Train grad_norm: 0.3731586730480194
+[2025-04-22 14:58:47.756351] --------------------------------------------------
+[2025-04-22 14:58:47.756772] Start ppl evaluation
+[2025-04-22 14:59:00.261173] Eval time for ppl: 12.50s
+[2025-04-22 14:59:00.262109] Step 1000: Eval openwebtext.ppl: 72.15371864120088
+[2025-04-22 14:59:00.262309] End lm evaluation
+[2025-04-22 14:59:00.262397] --------------------------------------------------
+[2025-04-22 14:59:11.999404] Step 1000 Train loss: 4.254008920490742
+[2025-04-22 14:59:11.999748] Step 1000 Train loss_concept: 4.342739438414574
+[2025-04-22 14:59:11.999897] Step 1000 Train grad_norm: 0.36182086646556855
+[2025-04-22 15:08:24.865168] Step 1050 Train loss: 4.214626389294863
+[2025-04-22 15:08:24.865673] Step 1050 Train loss_concept: 4.325540454089642
+[2025-04-22 15:08:24.865825] Step 1050 Train grad_norm: 0.36095707178115843
+[2025-04-22 15:17:36.703788] Step 1100 Train loss: 4.1698132249712945
+[2025-04-22 15:17:36.704176] Step 1100 Train loss_concept: 4.308647390902043
+[2025-04-22 15:17:36.704330] Step 1100 Train grad_norm: 0.3588408243656159
+[2025-04-22 15:26:49.819293] Step 1150 Train loss: 4.139550446420908
+[2025-04-22 15:26:49.819685] Step 1150 Train loss_concept: 4.292740130722523
+[2025-04-22 15:26:49.819867] Step 1150 Train grad_norm: 0.35067680180072786
+[2025-04-22 15:36:02.848475] Step 1200 Train loss: 4.110847124606371
+[2025-04-22 15:36:02.848768] Step 1200 Train loss_concept: 4.281047433614731
+[2025-04-22 15:36:02.848950] Step 1200 Train grad_norm: 0.35549641489982603
+[2025-04-22 15:45:15.630817] Step 1250 Train loss: 4.088934392780065
+[2025-04-22 15:45:15.631262] Step 1250 Train loss_concept: 4.27463597536087
+[2025-04-22 15:45:15.631445] Step 1250 Train grad_norm: 0.3515942871570587
+[2025-04-22 15:54:29.090387] Step 1300 Train loss: 4.054197241067887
+[2025-04-22 15:54:29.090841] Step 1300 Train loss_concept: 4.256462004482747
+[2025-04-22 15:54:29.090979] Step 1300 Train grad_norm: 0.34031681656837465
+[2025-04-22 16:03:41.525609] Step 1350 Train loss: 4.031702960282564
+[2025-04-22 16:03:41.525972] Step 1350 Train loss_concept: 4.248240487575531
+[2025-04-22 16:03:41.526237] Step 1350 Train grad_norm: 0.338355171084404
+[2025-04-22 16:12:53.734430] Step 1400 Train loss: 4.004190204143525
+[2025-04-22 16:12:53.734909] Step 1400 Train loss_concept: 4.239292731881141
+[2025-04-22 16:12:53.735191] Step 1400 Train grad_norm: 0.33779411375522617
+[2025-04-22 16:22:06.355710] Step 1450 Train loss: 3.9833899815380573
+[2025-04-22 16:22:06.356118] Step 1450 Train loss_concept: 4.227644085884094
+[2025-04-22 16:22:06.356283] Step 1450 Train grad_norm: 0.3367974191904068
+[2025-04-22 16:31:19.321613] Step 1500 Train loss: 3.9657228830456734
+[2025-04-22 16:31:19.322016] Step 1500 Train loss_concept: 4.217692267000675
+[2025-04-22 16:31:19.322279] Step 1500 Train grad_norm: 0.32918103694915773
+[2025-04-22 16:40:31.208486] Step 1550 Train loss: 3.948288982063532
+[2025-04-22 16:40:31.208749] Step 1550 Train loss_concept: 4.210006103813648
+[2025-04-22 16:40:31.208887] Step 1550 Train grad_norm: 0.33199683725833895
+[2025-04-22 16:49:43.016686] Step 1600 Train loss: 3.9305804686248305
+[2025-04-22 16:49:43.017104] Step 1600 Train loss_concept: 4.1982142728567124
+[2025-04-22 16:49:43.017312] Step 1600 Train grad_norm: 0.3246814662218094
+[2025-04-22 16:58:57.444800] Step 1650 Train loss: 3.9072650657594203
+[2025-04-22 16:58:57.445056] Step 1650 Train loss_concept: 4.188856766819954
+[2025-04-22 16:58:57.445226] Step 1650 Train grad_norm: 0.32099098920822144
+[2025-04-22 17:08:09.057760] Step 1700 Train loss: 3.8917418871819973
+[2025-04-22 17:08:09.058219] Step 1700 Train loss_concept: 4.183673996329308
+[2025-04-22 17:08:09.058374] Step 1700 Train grad_norm: 0.31729771435260773
+[2025-04-22 17:17:21.211554] Step 1750 Train loss: 3.880589633882046
+[2025-04-22 17:17:21.212117] Step 1750 Train loss_concept: 4.174387386739254
+[2025-04-22 17:17:21.212384] Step 1750 Train grad_norm: 0.3158613753318787
+[2025-04-22 17:26:33.890673] Step 1800 Train loss: 3.8666692262887956
+[2025-04-22 17:26:33.891107] Step 1800 Train loss_concept: 4.167289431095123
+[2025-04-22 17:26:33.891318] Step 1800 Train grad_norm: 0.30879742085933687
+[2025-04-22 17:35:45.592524] Step 1850 Train loss: 3.85442051678896
+[2025-04-22 17:35:45.592934] Step 1850 Train loss_concept: 4.161118619441986
+[2025-04-22 17:35:45.593169] Step 1850 Train grad_norm: 0.3097178292274475
+[2025-04-22 17:44:59.333573] Step 1900 Train loss: 3.8424153196811677
+[2025-04-22 17:44:59.333964] Step 1900 Train loss_concept: 4.15563032001257
+[2025-04-22 17:44:59.334145] Step 1900 Train grad_norm: 0.3084500014781952
+[2025-04-22 17:54:11.873845] Step 1950 Train loss: 3.8222636787593367
+[2025-04-22 17:54:11.874330] Step 1950 Train loss_concept: 4.145897273123264
+[2025-04-22 17:54:11.874473] Step 1950 Train grad_norm: 0.3077758836746216
+[2025-04-22 18:03:23.294851] --------------------------------------------------
+[2025-04-22 18:03:23.295311] Start ppl evaluation
+[2025-04-22 18:03:35.753393] Eval time for ppl: 12.46s
+[2025-04-22 18:03:35.754228] Step 2000: Eval openwebtext.ppl: 46.51259956029396
+[2025-04-22 18:03:35.754398] End lm evaluation
+[2025-04-22 18:03:35.754491] --------------------------------------------------
+[2025-04-22 18:03:47.312962] Step 2000 Train loss: 3.8103547802567483
+[2025-04-22 18:03:47.313388] Step 2000 Train loss_concept: 4.139781994223595
+[2025-04-22 18:03:47.313591] Step 2000 Train grad_norm: 0.3077778995037079
+[2025-04-22 18:13:00.506836] Step 2050 Train loss: 3.795730127245188
+[2025-04-22 18:13:00.507251] Step 2050 Train loss_concept: 4.133660421967506
+[2025-04-22 18:13:00.507395] Step 2050 Train grad_norm: 0.3051243215799332
+[2025-04-22 18:22:16.388548] Step 2100 Train loss: 3.784173593968153
+[2025-04-22 18:22:16.389313] Step 2100 Train loss_concept: 4.127369141578674
+[2025-04-22 18:22:16.389594] Step 2100 Train grad_norm: 0.2972689664363861
+[2025-04-22 18:31:43.542708] Step 2150 Train loss: 3.7767805309593676
+[2025-04-22 18:31:43.543124] Step 2150 Train loss_concept: 4.1193636421859265
+[2025-04-22 18:31:43.543281] Step 2150 Train grad_norm: 0.2982106637954712
+[2025-04-22 18:40:55.594493] Step 2200 Train loss: 3.7661079685389995
+[2025-04-22 18:40:55.594799] Step 2200 Train loss_concept: 4.114662352651358
+[2025-04-22 18:40:55.594984] Step 2200 Train grad_norm: 0.3033108592033386
+[2025-04-22 18:50:08.969337] Step 2250 Train loss: 3.7529642754793167
+[2025-04-22 18:50:08.969844] Step 2250 Train loss_concept: 4.109924342185259
+[2025-04-22 18:50:08.970074] Step 2250 Train grad_norm: 0.2996049439907074
+[2025-04-22 18:59:21.602625] Step 2300 Train loss: 3.739828539788723
+[2025-04-22 18:59:21.602993] Step 2300 Train loss_concept: 4.105499773770571
+[2025-04-22 18:59:21.603176] Step 2300 Train grad_norm: 0.30109962821006775
+[2025-04-22 19:08:34.825409] Step 2350 Train loss: 3.733276665955782
+[2025-04-22 19:08:34.825775] Step 2350 Train loss_concept: 4.098749656379223
+[2025-04-22 19:08:34.825914] Step 2350 Train grad_norm: 0.3026027119159699
+[2025-04-22 19:17:47.079571] Step 2400 Train loss: 3.7262523642182352
+[2025-04-22 19:17:47.079933] Step 2400 Train loss_concept: 4.090262710899115
+[2025-04-22 19:17:47.080110] Step 2400 Train grad_norm: 0.2896116662025452
+[2025-04-22 19:27:00.134355] Step 2450 Train loss: 3.721617362946272
+[2025-04-22 19:27:00.134930] Step 2450 Train loss_concept: 4.091138331592083
+[2025-04-22 19:27:00.135177] Step 2450 Train grad_norm: 0.29184633791446685
+[2025-04-22 19:36:12.133094] Step 2500 Train loss: 3.7115596610307695
+[2025-04-22 19:36:12.133507] Step 2500 Train loss_concept: 4.085008888840675
+[2025-04-22 19:36:12.133714] Step 2500 Train grad_norm: 0.29096603333950044
+[2025-04-22 19:45:26.406148] Step 2550 Train loss: 3.6990771605074406
+[2025-04-22 19:45:26.406441] Step 2550 Train loss_concept: 4.077463878691196
+[2025-04-22 19:45:26.406600] Step 2550 Train grad_norm: 0.2906131321191788
+[2025-04-22 19:54:39.834506] Step 2600 Train loss: 3.6951935370266438
+[2025-04-22 19:54:39.834931] Step 2600 Train loss_concept: 4.074857071191072
+[2025-04-22 19:54:39.835193] Step 2600 Train grad_norm: 0.28889662683010103
+[2025-04-22 20:03:52.139253] Step 2650 Train loss: 3.6880617724359035
+[2025-04-22 20:03:52.139591] Step 2650 Train loss_concept: 4.0695595003664495
+[2025-04-22 20:03:52.139794] Step 2650 Train grad_norm: 0.28521787106990815
+[2025-04-22 20:13:05.499959] Step 2700 Train loss: 3.6836236727237703
+[2025-04-22 20:13:05.500447] Step 2700 Train loss_concept: 4.066740722060204
+[2025-04-22 20:13:05.500588] Step 2700 Train grad_norm: 0.28863883316516875
+[2025-04-22 20:22:19.464105] Step 2750 Train loss: 3.6727851350605487
+[2025-04-22 20:22:19.464492] Step 2750 Train loss_concept: 4.060131095796824
+[2025-04-22 20:22:19.464630] Step 2750 Train grad_norm: 0.2844275814294815
+[2025-04-22 20:31:31.434783] Step 2800 Train loss: 3.662727720141411
+[2025-04-22 20:31:31.435398] Step 2800 Train loss_concept: 4.055628034770489
+[2025-04-22 20:31:31.435624] Step 2800 Train grad_norm: 0.28541301608085634
+[2025-04-22 20:40:44.394934] Step 2850 Train loss: 3.6493486666679384
+[2025-04-22 20:40:44.395467] Step 2850 Train loss_concept: 4.053044617921114
+[2025-04-22 20:40:44.395663] Step 2850 Train grad_norm: 0.2823084932565689
+[2025-04-22 20:49:58.040233] Step 2900 Train loss: 3.651735661327839
+[2025-04-22 20:49:58.040647] Step 2900 Train loss_concept: 4.047835031896829
+[2025-04-22 20:49:58.040786] Step 2900 Train grad_norm: 0.281794850230217
+[2025-04-22 20:59:11.376366] Step 2950 Train loss: 3.643411419838667
+[2025-04-22 20:59:11.376817] Step 2950 Train loss_concept: 4.04538148984313
+[2025-04-22 20:59:11.377010] Step 2950 Train grad_norm: 0.2948984265327454
+[2025-04-22 21:08:13.486089] --------------------------------------------------
+[2025-04-22 21:08:13.486530] Start ppl evaluation
+[2025-04-22 21:08:25.921150] Eval time for ppl: 12.43s
+[2025-04-22 21:08:25.921994] Step 3000: Eval openwebtext.ppl: 39.173442543622166
+[2025-04-22 21:08:25.922215] End lm evaluation
+[2025-04-22 21:08:25.922303] --------------------------------------------------
+[2025-04-22 21:08:37.496162] Step 3000 Train loss: 3.6313045172393323
+[2025-04-22 21:08:37.496536] Step 3000 Train loss_concept: 4.041859331279993
+[2025-04-22 21:08:37.496732] Step 3000 Train grad_norm: 0.2788395833969116
+[2025-04-22 21:17:49.470071] Step 3050 Train loss: 3.625674411803484
+[2025-04-22 21:17:49.470566] Step 3050 Train loss_concept: 4.037724899500608
+[2025-04-22 21:17:49.470709] Step 3050 Train grad_norm: 0.2800730586051941
+[2025-04-22 21:27:02.096360] Step 3100 Train loss: 3.6255128404498103
+[2025-04-22 21:27:02.096722] Step 3100 Train loss_concept: 4.034694524854421
+[2025-04-22 21:27:02.096860] Step 3100 Train grad_norm: 0.27691590309143066
+[2025-04-22 21:36:14.287500] Step 3150 Train loss: 3.6191736160218717
+[2025-04-22 21:36:14.287944] Step 3150 Train loss_concept: 4.030251749604941
+[2025-04-22 21:36:14.288192] Step 3150 Train grad_norm: 0.28555659890174867
+[2025-04-22 21:45:26.452755] Step 3200 Train loss: 3.609962242692709
+[2025-04-22 21:45:26.453269] Step 3200 Train loss_concept: 4.028853289932012
+[2025-04-22 21:45:26.453480] Step 3200 Train grad_norm: 0.2797608947753906
+[2025-04-22 21:54:39.479635] Step 3250 Train loss: 3.6101127319037913
+[2025-04-22 21:54:39.480085] Step 3250 Train loss_concept: 4.023595646470786
+[2025-04-22 21:54:39.480249] Step 3250 Train grad_norm: 0.2815807902812958
+[2025-04-22 22:03:51.645772] Step 3300 Train loss: 3.6067042443156243
+[2025-04-22 22:03:51.646141] Step 3300 Train loss_concept: 4.021505490839481
+[2025-04-22 22:03:51.646294] Step 3300 Train grad_norm: 0.27481277763843537
+[2025-04-22 22:13:02.698508] Step 3350 Train loss: 3.5963749186694622
+[2025-04-22 22:13:02.698851] Step 3350 Train loss_concept: 4.016484712064266
+[2025-04-22 22:13:02.698990] Step 3350 Train grad_norm: 0.2800996506214142
+[2025-04-22 22:22:16.178531] Step 3400 Train loss: 3.592960956543684
+[2025-04-22 22:22:16.178917] Step 3400 Train loss_concept: 4.014412257522345
+[2025-04-22 22:22:16.179096] Step 3400 Train grad_norm: 0.27132615089416506
+[2025-04-22 22:31:28.441751] Step 3450 Train loss: 3.5798920145630837
+[2025-04-22 22:31:28.442285] Step 3450 Train loss_concept: 4.009215114414692
+[2025-04-22 22:31:28.442478] Step 3450 Train grad_norm: 0.2720331141352654
+[2025-04-22 22:40:40.464216] Step 3500 Train loss: 3.5907431431114674
+[2025-04-22 22:40:40.464540] Step 3500 Train loss_concept: 4.009051190018654
+[2025-04-22 22:40:40.464721] Step 3500 Train grad_norm: 0.2807961612939835
+[2025-04-22 22:49:52.608296] Step 3550 Train loss: 3.573864562958479
+[2025-04-22 22:49:52.608577] Step 3550 Train loss_concept: 4.00702312707901
+[2025-04-22 22:49:52.608730] Step 3550 Train grad_norm: 0.2941564643383026
+[2025-04-22 22:59:06.063650] Step 3600 Train loss: 3.5719555000960828
+[2025-04-22 22:59:06.064116] Step 3600 Train loss_concept: 4.000586186051369
+[2025-04-22 22:59:06.064270] Step 3600 Train grad_norm: 0.27191590040922164
+[2025-04-22 23:08:19.045585] Step 3650 Train loss: 3.56406578168273
+[2025-04-22 23:08:19.045857] Step 3650 Train loss_concept: 4.000156221389771
+[2025-04-22 23:08:19.045990] Step 3650 Train grad_norm: 0.2696385312080383
+[2025-04-22 23:17:29.892750] Step 3700 Train loss: 3.559964334219694
+[2025-04-22 23:17:29.893221] Step 3700 Train loss_concept: 3.9971351252496246
+[2025-04-22 23:17:29.893427] Step 3700 Train grad_norm: 0.28657896399497984
+[2025-04-22 23:26:42.935815] Step 3750 Train loss: 3.5557076042890547
+[2025-04-22 23:26:42.936340] Step 3750 Train loss_concept: 3.995878083258867
+[2025-04-22 23:26:42.936543] Step 3750 Train grad_norm: 0.2731631064414978
+[2025-04-22 23:35:55.609129] Step 3800 Train loss: 3.5571229246258738
+[2025-04-22 23:35:55.609566] Step 3800 Train loss_concept: 3.9914649970829488
+[2025-04-22 23:35:55.609723] Step 3800 Train grad_norm: 0.2786630666255951
+[2025-04-22 23:45:07.984796] Step 3850 Train loss: 3.5504528956115244
+[2025-04-22 23:45:07.985203] Step 3850 Train loss_concept: 3.9900816564261916
+[2025-04-22 23:45:07.985348] Step 3850 Train grad_norm: 0.2738608318567276
+[2025-04-22 23:54:19.206108] Step 3900 Train loss: 3.551558084636927
+[2025-04-22 23:54:19.206505] Step 3900 Train loss_concept: 3.987956922352314
+[2025-04-22 23:54:19.206647] Step 3900 Train grad_norm: 0.3292748320102692
+[2025-04-23 00:03:33.427357] Step 3950 Train loss: 3.5464943613111974
+[2025-04-23 00:03:33.427975] Step 3950 Train loss_concept: 3.9876143781840803
+[2025-04-23 00:03:33.428259] Step 3950 Train grad_norm: 0.27390905559062956
