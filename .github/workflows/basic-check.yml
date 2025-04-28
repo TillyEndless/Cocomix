@@ -1,0 +1,23 @@
+name: Basic Repository Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-repo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: List changed files
+      run: git diff --name-only HEAD^ HEAD
+
+    - name: Basic Python Syntax Check
+      run: |
+        find . -name "*.py" -print0 | xargs -0 python -m py_compile
